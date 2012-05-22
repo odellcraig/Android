@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chore</string>
+
+    <!-- Tab labels -->
+    <string name="tabLabelApprove">Approve</string>
+    <string name="tabLabelPreview">Preview</string>
+    <string name="tabLabelAssign">Assign</string>
+    <string name="tabLabelSetup">Setup</string>
+    
+    <!-- Setup Screen Strings -->
+    <string name="labelSetup">SETUP</string>
+	<string name="labelChildren">Children</string>
+    <string name="labelChores">Chores</string>
+    <string name="labelRewards">Rewards</string>
+    <string name="labelSettings">Settings</string>
+    <string-array name="setup_groups">
+        <item>Children</item>
+        <item>Chores</item>
+        <item>Rewards</item>
+        <item>Settings</item>
+    </string-array>
+    <string-array name="setup_static_menu_items">
+        <item>View/Edit</item>
+        <item>Quick Add</item>
+    </string-array>
+
+    
+    <!-- Edit Child Strings -->
+    <string name="reward">Reward</string>
+    <string name="statistics">Statistics</string>
+    <string name="take_picture">Take Photo</string>
+    <string name="choose_picture">Choose From Library</string>
+    
+    
+    <!--  Chore List Strings -->
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    
+    
+    <!--  Chore Details Strings -->
+    <string name="schedule">Schedule</string>
+    <string name="data">Data</string>
+
+</resources>

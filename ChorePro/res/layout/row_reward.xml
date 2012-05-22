@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="5dip">
+   
+    <TextView
+        android:text="A Chore Title"
+        android:id="@+id/rewardRowTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:gravity="center_vertical|left"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    
+	<TextView
+	    android:id="@+id/rewardRowPoints"
+	    android:layout_width="50dp"
+	    android:layout_height="50dp"
+	    android:layout_gravity="center_vertical|right"
+	    android:layout_marginLeft="5dip"
+	    android:textColor="@android:color/black"
+	    android:background="@android:drawable/btn_star_big_on"
+	    android:text="30"
+	    android:gravity="center_vertical|center_horizontal"/>
+
+</LinearLayout>
