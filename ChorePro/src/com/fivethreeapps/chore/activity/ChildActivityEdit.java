@@ -32,7 +32,6 @@ public class ChildActivityEdit extends Activity {
 
 	//Members
 	private ImageView mChildPicture;
-	private ImageView testImage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

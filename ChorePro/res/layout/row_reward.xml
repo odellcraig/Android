@@ -5,7 +5,7 @@
     android:padding="5dip">
    
     <TextView
-        android:text="A Chore Title"
+        android:text="A Reward Title"
         android:id="@+id/rewardRowTitle"
         android:layout_width="fill_parent"
         android:layout_height="50dip"

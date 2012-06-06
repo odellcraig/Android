@@ -29,7 +29,7 @@ public class RewardListActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.rewardlist);  
+		setContentView(R.layout.listreward);  
 
 		
 		//setListAdapter(new ArrayAdapter<String>(this, R.layout.rule_item, RULES));

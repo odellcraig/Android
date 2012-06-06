@@ -29,13 +29,18 @@ public class ChoreListActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.chorelist);  
+		setContentView(R.layout.listchore);  
 
 		
 		//setListAdapter(new ArrayAdapter<String>(this, R.layout.rule_item, RULES));
 		ListView lv = getListView();
 		lv.setItemsCanFocus(false);
 		lv.setTextFilterEnabled(true);
+		
+		View footer = getLayoutInflater().inflate(R.layout.row_reward, null);
+		lv.addFooterView(footer);
+		
+		
 		
 		//Might have add-button at top
         /*mAddButton = (ImageButton)findViewById(R.id.buttonAdd);
