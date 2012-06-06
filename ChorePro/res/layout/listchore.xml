@@ -9,12 +9,12 @@
     <ListView android:id="@android:id/list" 
         android:layout_width="fill_parent" 
         android:layout_height="fill_parent"
-        android:layout_above="@+id/staticRow"/>
+        android:layout_above="@+id/buttonAddChore"/>
     
     <ImageButton
-        android:id="@+id/staticRow"
+        android:id="@+id/buttonAddChore"
         android:layout_width="fill_parent"
-        android:layout_height="40dip"
+        android:layout_height="45dip"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:gravity="center"

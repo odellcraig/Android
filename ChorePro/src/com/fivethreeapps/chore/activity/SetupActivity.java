@@ -1,5 +1,7 @@
 package com.fivethreeapps.chore.activity;
 
+import java.util.ArrayList;
+
 import android.app.ExpandableListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ public class SetupActivity extends ExpandableListActivity {
 	private static final String TAG = "SetupActivity";
 	private static final int ACTIVITY_CREATE=0;
     private static final int ACTIVITY_EDIT=1;
+    private static final int GROUP_COUNT = 4;
     
     private static final int GROUP_CHILDREN = 0;
     private static final int GROUP_CHORES 	= 1;
@@ -32,25 +35,50 @@ public class SetupActivity extends ExpandableListActivity {
     
     public static final String KEY_ROWID = "_id"; //TODO: move to dbAdapter class
 	private SetupExpandableListAdapter mAdapter;
+	
+	private ArrayList<Boolean> isRowExpanded;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isRowExpanded = new ArrayList<Boolean>();
+        
+        final ExpandableListView expandableListView = getExpandableListView(); 
+        for(int i = 0; i < GROUP_COUNT; ++i) {
+        	isRowExpanded.add(true);
+        }
+        
+        
+        Log.i("blabla", "Length = " + isRowExpanded.size());
+        
         
         fillData();
-        
-        //Expand all the groups
-        final ExpandableListView expandableListView = getExpandableListView(); 
-        final int groupCount = expandableListView.getCount(); 
-        for(int group = 0; group < groupCount; ++group){
-        	expandableListView.expandGroup(group);
-        }
+    }
+    
+    @Override
+    protected void onPause() {
+    	super.onPause();
+    	saveTemporaryState();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mAdapter = null;
+    }
+    
+    
+    protected void saveTemporaryState() {
+    	
+        final ExpandableListView expandableListView = getExpandableListView(); 
+        for(int group = 0; group < GROUP_COUNT; ++group){
+        	if(expandableListView.isGroupExpanded(group)) {
+        		isRowExpanded.set(group, true);
+        	}
+        	else {
+        		isRowExpanded.set(group, false);
+        	}
+        }
     }
     
     
@@ -81,10 +109,6 @@ public class SetupActivity extends ExpandableListActivity {
 				addReward();
 			return true;
 		}
-		
-		
-		
-		
     	return true;
 	}
 
@@ -105,6 +129,15 @@ public class SetupActivity extends ExpandableListActivity {
 
 
     	setListAdapter(mAdapter);
+    	
+    	
+    	// Expand the groups as they were before
+    	final ExpandableListView expandableListView = getExpandableListView(); 
+        for(int group = 0; group < GROUP_COUNT; ++group){
+        	if(isRowExpanded.get(group).booleanValue()) {
+        		expandableListView.expandGroup(group);
+        	}
+        }
     }
     
     
