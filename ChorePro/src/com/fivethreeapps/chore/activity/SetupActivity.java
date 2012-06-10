@@ -33,7 +33,7 @@ public class SetupActivity extends ExpandableListActivity {
     private static final int CHILD_INDEX_QUICK_ADD = 1;
     
     
-    public static final String KEY_ROWID = "_id"; //TODO: move to dbAdapter class
+	public static final String KEY_ROWID = "_id"; //TODO: move to dbAdapter class
 	private SetupExpandableListAdapter mAdapter;
 	
 	private ArrayList<Boolean> isRowExpanded;
@@ -47,10 +47,6 @@ public class SetupActivity extends ExpandableListActivity {
         for(int i = 0; i < GROUP_COUNT; ++i) {
         	isRowExpanded.add(true);
         }
-        
-        
-        Log.i("blabla", "Length = " + isRowExpanded.size());
-        
         
         fillData();
     }
@@ -143,14 +139,14 @@ public class SetupActivity extends ExpandableListActivity {
     
 	private void createChild(){
 		Log.i(TAG, "Creating new child.");
-		Intent i = new Intent(this, ChildActivityEdit.class);
+		Intent i = new Intent(this, ChildEditActivity.class);
         startActivityForResult(i, ACTIVITY_CREATE);		
 	}
 	
 		
     private void editChild(long id){
     	Log.i(TAG, "Editing existing child: " + id);
-        Intent i = new Intent(this, ChildActivityEdit.class);
+        Intent i = new Intent(this, ChildEditActivity.class);
         i.putExtra(KEY_ROWID, id);
         startActivityForResult(i, ACTIVITY_EDIT);
     }

@@ -82,12 +82,12 @@ public final class R {
     public static final class string {
         /**   Chore List Strings 
          */
-        public static final int add=0x7f04000e;
+        public static final int add=0x7f040011;
         public static final int app_name=0x7f040000;
         public static final int choose_picture=0x7f04000d;
-        public static final int data=0x7f040013;
-        public static final int delete=0x7f04000f;
-        public static final int edit=0x7f040010;
+        public static final int data=0x7f040016;
+        public static final int delete=0x7f040012;
+        public static final int edit=0x7f040013;
         public static final int labelChildren=0x7f040006;
         public static final int labelChores=0x7f040007;
         public static final int labelRewards=0x7f040008;
@@ -95,13 +95,16 @@ public final class R {
         /**  Setup Screen Strings 
          */
         public static final int labelSetup=0x7f040005;
-        public static final int quickAdd=0x7f040011;
+        public static final int ok=0x7f040010;
+        public static final int quickAdd=0x7f040014;
         /**  Edit Child Strings 
          */
         public static final int reward=0x7f04000a;
         /**   Chore Details Strings 
          */
-        public static final int schedule=0x7f040012;
+        public static final int schedule=0x7f040015;
+        public static final int sdMessage=0x7f04000f;
+        public static final int sdTitle=0x7f04000e;
         public static final int statistics=0x7f04000b;
         /**  Tab labels 
          */

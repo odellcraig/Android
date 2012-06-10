@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:text="@string/statistics"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
   
     <EditText
         android:id="@+id/editText2"
@@ -80,6 +80,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:gravity="left|top"
+        android:text="Created: 1/1/2012" 
+        android:editable="false"/>
     
 </LinearLayout>

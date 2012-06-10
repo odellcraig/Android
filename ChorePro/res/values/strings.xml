@@ -31,7 +31,9 @@
     <string name="statistics">Statistics</string>
     <string name="take_picture">Take Photo</string>
     <string name="choose_picture">Choose From Library</string>
-    
+    <string name="sdTitle">SD Card Not Mounted</string>
+    <string name="sdMessage">Please insert an SD card.</string>
+    <string name="ok">OK</string>
     
     <!--  Chore List Strings -->
     <string name="add">Add</string>

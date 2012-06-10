@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,19 +21,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.fivethreeapps.chore.R;
 
-public class ChildActivityEdit extends Activity {
+public class ChildEditActivity extends Activity {
 	private static final String TAG = "EditChildActivity";
 	private static final int REQ_TAKE_PIC  = 0;
 	private static final int REQ_CHOOSE_PIC = 1;
+	private static final int REQ_CHOOSE_REWARD = 2;
 	private static final String TEMP_PHOTO_FILE = "FiveThreeAppsPickTemp.jpg";
 
 	//Members
 	private ImageView mChildPicture;
+	private Button mRewardButton;
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +59,38 @@ public class ChildActivityEdit extends Activity {
 
 			}
 		});
+		
+		//Set listener for reward button
+		mRewardButton = (Button)findViewById(R.id.buttonReward);
+		mRewardButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Log.i(TAG, "Reward Button was clicked");
+				Intent i = new Intent(v.getContext(), RewardListActivity.class);
+		        startActivityForResult(i, REQ_CHOOSE_REWARD);	
+			}
+		});
+		
+		
 	}
 
+	/**
+	 * Get a temporary URI for storing the selected file
+	 * @return Uri if properly created from file, null otherwise
+	 */
 	private Uri getTempUri() {
-		return Uri.fromFile(getTempFile());
+		File tempFile = getTempFile();
+		if(tempFile != null) 
+			return Uri.fromFile(tempFile);
+		else
+			return null;
 	}
 
+	/**
+	 * Get a temporary file on the SD card will raise dialog if no SD card
+	 * @return file created if successful, otherwise raises dialog and returns null
+	 */
 	private File getTempFile() {
 		if (isSDCARDMounted()) {
 
@@ -69,9 +101,29 @@ public class ChildActivityEdit extends Activity {
 			}
 			return f;
 		} 
+		
+		AlertDialog alert = new AlertDialog.Builder(this).create();
+		alert.setTitle(R.string.sdTitle);
+		alert.setMessage(getResources().getString(R.string.sdMessage));
+		
+		//Set an OK message to make user feel nice
+		alert.setButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Log.i(TAG, "User clicked ok from no-SD dialog.");
+			}
+		});
+		
+		
+		alert.show();
 		return null;
 	}
 
+	/**
+	 * Is the SD card present/mounted
+	 * @return true if SD card is mounted, false otherwise
+	 */
 	private boolean isSDCARDMounted() {
 		String status = Environment.getExternalStorageState();
 		if (status.equals(Environment.MEDIA_MOUNTED))
@@ -83,6 +135,7 @@ public class ChildActivityEdit extends Activity {
 	
 	public boolean onContextItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
+			
 		case R.id.take_picture:
 			Log.i(TAG, "Taking picture from camera.");
 			Intent takePickIntent = new Intent("android.media.action.IMAGE_CAPTURE");
@@ -93,13 +146,20 @@ public class ChildActivityEdit extends Activity {
 			takePickIntent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
 			startActivityForResult(takePickIntent, REQ_TAKE_PIC);
 			return true;
+			
 		case R.id.choose_picture:
 			Log.i(TAG, "Picking picture from gallery");
 			Intent choosePicIntent = new Intent(Intent.ACTION_GET_CONTENT);
 			choosePicIntent.putExtra("crop", "true");
 			choosePicIntent.putExtra("aspectX", 1);
 			choosePicIntent.putExtra("aspectY", 1);
-			choosePicIntent.putExtra(MediaStore.EXTRA_OUTPUT, getTempUri());
+			
+			//Only attempt if SDCard is mounted
+			Uri tempUri = getTempUri();
+			if(tempUri != null) { choosePicIntent.putExtra(MediaStore.EXTRA_OUTPUT, getTempUri()); }
+			else {return false; }
+			
+			
 			choosePicIntent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
 			choosePicIntent.putExtra("noFaceDetection",false); 
 			choosePicIntent.setType("image/*");
@@ -130,10 +190,15 @@ public class ChildActivityEdit extends Activity {
 
 		if(requestCode == REQ_CHOOSE_PIC && resultCode == RESULT_OK) {
 			if(data != null) {
-				File tempFile = getTempFile();
-				//Bitmap photo = BitmapFactory.decodeFileDescriptor(tempFile);
-				//setChildPicture(photo);
+				Uri tempUri = getTempUri();
+				Bitmap photo = BitmapFactory.decodeFile(tempUri.getPath());
+				setChildPicture(photo);
 			}
+		}
+		
+		if(requestCode == REQ_CHOOSE_REWARD && resultCode == RESULT_OK) {
+			Log.i(TAG, "Reward was choosen.");
+			//If we have enough points, reward the reward and decrease the points, otherwise prompt for confirmation.
 		}
 	}
 }
