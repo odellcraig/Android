@@ -42,7 +42,7 @@ public class ChildEditActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.edit_child);
+		setContentView(R.layout.editchild);
 
 		mChildPicture = (ImageView)findViewById(R.id.imageButtonPicture);
 		mChildPicture.setOnClickListener(new OnClickListener() {
@@ -55,7 +55,7 @@ public class ChildEditActivity extends Activity {
 			public void onCreateContextMenu(ContextMenu menu, View v,
 					ContextMenuInfo menuInfo) {
 				MenuInflater inflater = getMenuInflater();
-				inflater.inflate(R.menu.picture_menu, menu);
+				inflater.inflate(R.menu.menucontextpictures, menu);
 
 			}
 		});
@@ -136,7 +136,7 @@ public class ChildEditActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
 			
-		case R.id.take_picture:
+		case R.id.takePicture:
 			Log.i(TAG, "Taking picture from camera.");
 			Intent takePickIntent = new Intent("android.media.action.IMAGE_CAPTURE");
 			takePickIntent.putExtra("crop", "true");
@@ -147,7 +147,7 @@ public class ChildEditActivity extends Activity {
 			startActivityForResult(takePickIntent, REQ_TAKE_PIC);
 			return true;
 			
-		case R.id.choose_picture:
+		case R.id.choosePicture:
 			Log.i(TAG, "Picking picture from gallery");
 			Intent choosePicIntent = new Intent(Intent.ACTION_GET_CONTENT);
 			choosePicIntent.putExtra("crop", "true");

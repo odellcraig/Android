@@ -37,7 +37,7 @@ public class ChoreListActivity extends ListActivity {
 		lv.setItemsCanFocus(false);
 		lv.setTextFilterEnabled(true);
 		
-		View footer = getLayoutInflater().inflate(R.layout.row_reward, null);
+		View footer = getLayoutInflater().inflate(R.layout.rowreward, null);
 		lv.addFooterView(footer);
 		
 		
@@ -72,7 +72,7 @@ public class ChoreListActivity extends ListActivity {
         }
  
         // fill in the grid_item layout
-        SimpleAdapter adapter = new SimpleAdapter(this, fillMaps, R.layout.row_chore, from, to);
+        SimpleAdapter adapter = new SimpleAdapter(this, fillMaps, R.layout.rowchore, from, to);
         setListAdapter(adapter);
 
 		
@@ -98,7 +98,7 @@ public class ChoreListActivity extends ListActivity {
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 	   MenuInflater inflater = getMenuInflater();
-	   inflater.inflate(R.menu.chore_options_menu, menu);
+	   inflater.inflate(R.menu.menuoptionschore, menu);
 	   return true;
     }
 	
@@ -140,7 +140,7 @@ public class ChoreListActivity extends ListActivity {
             ContextMenuInfo menuInfo) {
     	
     	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.chore_context_menu, menu);
+    	inflater.inflate(R.menu.menucontextchore, menu);
     	super.onCreateContextMenu(menu, v, menuInfo);
     }
     

@@ -27,8 +27,8 @@ public class SetupExpandableListAdapter extends BaseExpandableListAdapter {
 		super();
 		mContext = context;
 		Resources res = mContext.getResources();
-        mGroups = res.getStringArray(R.array.setup_groups);
-    	mStaticTags = res.getStringArray(R.array.setup_static_menu_items);
+        mGroups = res.getStringArray(R.array.setupGroups);
+    	mStaticTags = res.getStringArray(R.array.setupStaticMenuItems);
     	mInflator = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
@@ -37,12 +37,12 @@ public class SetupExpandableListAdapter extends BaseExpandableListAdapter {
 			boolean isLastChild, View convertView, ViewGroup parent) {
 		if(groupPosition == 0) {
 			//Get linear layout and slap in name/pic
-			LinearLayout layout = (LinearLayout)mInflator.inflate(R.layout.expandable_row_child, null);
+			LinearLayout layout = (LinearLayout)mInflator.inflate(R.layout.expandablerowchild, null);
 			((TextView)layout.getChildAt(1)).setText((String)getChild(groupPosition,childPosition));
 			return layout;
 		}
 		
-		TextView v = (TextView)mInflator.inflate(R.layout.expandable_row_static, null);
+		TextView v = (TextView)mInflator.inflate(R.layout.expandablerowstatic, null);
 		v.setText((String)getChild(groupPosition,childPosition));
         return v;
 	}
@@ -92,7 +92,7 @@ public class SetupExpandableListAdapter extends BaseExpandableListAdapter {
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
             ViewGroup parent) {
-		TextView v = (TextView)mInflator.inflate(R.layout.expandable_row_title, null);
+		TextView v = (TextView)mInflator.inflate(R.layout.expandablerowtitle, null);
 		v.setText((String)getGroup(groupPosition));
 		return v;
     }

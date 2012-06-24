@@ -116,8 +116,8 @@ public class SetupActivity extends ExpandableListActivity {
     private void fillData() {
         
     	mAdapter = new SetupExpandableListAdapter(this, null,
-                R.layout.expandable_row_title,
-                R.layout.expandable_row_static,
+                R.layout.expandablerowtitle,
+                R.layout.expandablerowstatic,
                 new String[] { Contacts.DISPLAY_NAME }, // Name for group layouts
                 new int[] { android.R.id.text1 },
                 new String[] { Phone.NUMBER }, // Number for child layouts

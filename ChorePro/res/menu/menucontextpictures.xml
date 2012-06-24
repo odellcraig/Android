@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/take_picture"
+    <item android:id="@+id/takePicture"
           android:icon="@drawable/ic_launcher"
-          android:title="@string/take_picture" />
-    <item android:id="@+id/choose_picture"
+          android:title="@string/takePicture" />
+    <item android:id="@+id/choosePicture"
           android:icon="@drawable/ic_launcher"
-          android:title="@string/choose_picture" />
+          android:title="@string/choosePicture" />
 </menu>
+ 

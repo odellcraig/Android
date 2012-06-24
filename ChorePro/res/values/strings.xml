@@ -14,13 +14,13 @@
     <string name="labelChores">Chores</string>
     <string name="labelRewards">Rewards</string>
     <string name="labelSettings">Settings</string>
-    <string-array name="setup_groups">
+    <string-array name="setupGroups">
         <item>Children</item>
         <item>Chores</item>
         <item>Rewards</item>
         <item>Settings</item>
     </string-array>
-    <string-array name="setup_static_menu_items">
+    <string-array name="setupStaticMenuItems">
         <item>View/Edit</item>
         <item>Quick Add</item>
     </string-array>
@@ -28,9 +28,8 @@
     
     <!-- Edit Child Strings -->
     <string name="reward">Reward</string>
-    <string name="statistics">Statistics</string>
-    <string name="take_picture">Take Photo</string>
-    <string name="choose_picture">Choose From Library</string>
+    <string name="takePicture">Take Photo</string>
+    <string name="choosePicture">Choose From Library</string>
     <string name="sdTitle">SD Card Not Mounted</string>
     <string name="sdMessage">Please insert an SD card.</string>
     <string name="ok">OK</string>
@@ -45,5 +44,54 @@
     <!--  Chore Details Strings -->
     <string name="schedule">Schedule</string>
     <string name="data">Data</string>
+    <string name="repeat">Repeat</string>
+    <string name="recurrence">Recurrence</string>
+    <string name="on">On</string>
+    <string name="scheduleOnce">Schedule Once</string>
+    <string name="defaultChild">Default Child</string>
+    <string name="weekly">Weekly</string>
+    <string-array name="repeatListItems">
+        <item>None</item>
+        <item>Weekly</item>
+        <item>Every Other Week</item>
+        <item>Monthly</item>
+    </string-array>
+    
+   	<string-array name="daysOfWeek">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+    <string-array name="daysOfWeekShort">
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thur</item>
+        <item>Fri</item>
+        <item>Sat</item>
+    </string-array>
+    <string-array name="monthlySelectArray">
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Fourth</item>
+        <item>Last</item>
+    </string-array>
+    
+    
+    <!-- Reward Details Strings -->
+    <string name="rewardNameHint">Reward Name</string>
+    
+    
+    
+    
+    <!-- Common Strings (Used in multiple places) -->
+    <string name="statistics">Statistics</string>
+    
 
 </resources>

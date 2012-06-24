@@ -66,7 +66,7 @@ public class RewardListActivity extends ListActivity {
         }
  
         // fill in the grid_item layout
-        SimpleAdapter adapter = new SimpleAdapter(this, fillMaps, R.layout.row_reward, from, to);
+        SimpleAdapter adapter = new SimpleAdapter(this, fillMaps, R.layout.rowreward, from, to);
         setListAdapter(adapter);
 
 		
@@ -92,7 +92,7 @@ public class RewardListActivity extends ListActivity {
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 	   MenuInflater inflater = getMenuInflater();
-	   inflater.inflate(R.menu.reward_options_menu, menu);
+	   inflater.inflate(R.menu.menuoptionsreward, menu);
 	   return true;
     }
 	
@@ -134,7 +134,7 @@ public class RewardListActivity extends ListActivity {
             ContextMenuInfo menuInfo) {
     	
     	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.reward_context_menu, menu);
+    	inflater.inflate(R.menu.menucontextreward, menu);
     	super.onCreateContextMenu(menu, v, menuInfo);
     }
     

@@ -1,6 +1,6 @@
 package com.fivethreeapps.chore.adapter;
 
-
+import android.R;
 import android.content.Context;
 import android.database.Cursor;
 import android.widget.SimpleCursorAdapter;
@@ -12,7 +12,6 @@ public class ChoreListAdapter extends SimpleCursorAdapter {
 			String[] from, int[] to) {
 		super(context, layout, c, from, to);
 	}
-	
 	
 	
 	

@@ -13,19 +13,17 @@
                
         <ImageView
             android:id="@+id/imageChorePicture"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_margin="5dp"
             android:src="@drawable/ic_contact_picture"/>
         
         <EditText
             android:id="@+id/choreTitle"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginLeft="5dp"
-        	android:layout_marginRight="5dp"
+            android:layout_margin="5dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:inputType="textPersonName" >
             <requestFocus />
@@ -40,8 +38,8 @@
         
 		<TextView
 		    android:id="@+id/choreRowPoints"
-		    android:layout_width="45dp"
-		    android:layout_height="45dp"
+		    android:layout_width="60dp"
+		    android:layout_height="60dp"
 		    android:layout_gravity="center_vertical"
 		    android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -57,7 +55,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-		    android:layout_gravity="center_vertical"/>
+		    android:layout_gravity="center_vertical|center_horizontal"/>
         
     </LinearLayout>
 
@@ -85,14 +83,26 @@
 	    android:layout_marginLeft="5dp"
 	    android:layout_marginRight="5dp" />
   
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="5dp"
 	    android:layout_marginRight="5dp"
+        android:text="@string/statistics"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+	    
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_weight="1"
-        android:inputType="textMultiLine" />
+        android:text="Created: 1/1/2012" 
+        android:gravity="left|top"
+        android:inputType="textMultiLine"
+        android:editable="false"
+        android:focusable="false" />
     
 </LinearLayout>

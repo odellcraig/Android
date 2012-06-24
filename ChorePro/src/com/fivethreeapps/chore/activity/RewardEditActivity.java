@@ -9,7 +9,7 @@ public class RewardEditActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.edit_chore);
+		setContentView(R.layout.editreward);
 	}
 
 }
