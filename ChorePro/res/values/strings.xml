@@ -50,8 +50,8 @@
     <string name="scheduleOnce">Schedule Once</string>
     <string name="defaultChild">Default Child</string>
     <string name="weekly">Weekly</string>
-    <string-array name="repeatListItems">
-        <item>None</item>
+    <string-array name="primarySpinnerItems">
+        <item>Schedule Once</item>
         <item>Weekly</item>
         <item>Every Other Week</item>
         <item>Monthly</item>

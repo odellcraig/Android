@@ -60,15 +60,22 @@
     </LinearLayout>
 
 	<Spinner
-	    android:id="@+id/repeatFirstSpinner"
+	    android:id="@+id/primarySpinner"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="15dp" 
 	    android:layout_marginLeft="5dp"
 	    android:layout_marginRight="5dp"/>
+
+	<DatePicker
+	    android:id="@+id/scheduleOnceDatePicker"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal"
+	    android:visibility="gone" />
 
 	<Spinner
-	    android:id="@+id/repeatSecondSpinner"
+	    android:id="@+id/secondarySpinner"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content" 
 	    android:layout_marginLeft="5dp"
